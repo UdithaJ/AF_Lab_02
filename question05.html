@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    class Vehicle {
+        static  Instances = 0;
+        type;
+
+        constructor(type) {
+            Vehicle.Instance++;
+            this.type = type;
+        }
+        getType(){
+            return this.type;
+        }
+
+    }
+
+    class Car extends Vehicle{
+        constructor(name) {
+            super('car');
+            this.name = name;
+        }
+
+        getName(){
+            return this.name;
+        }
+
+    }
+
+    let car = new Car('toyota');
+    console.log(car.getName());
+    console.log(car.getType());
+    
+
+</script>
+
+</body>
+</html>

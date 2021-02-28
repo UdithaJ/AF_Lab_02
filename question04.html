@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function getValue(){
+        let value = 0;
+        return new Promise(function (resolve,error) {
+            setTimeout(function () {
+                value = 10;
+                resolve(value);
+            }, 2000);
+        });
+    }
+
+    function  setValue(value){
+        return value + 50;
+    }
+
+    function getNewValue(value){
+
+        return value *100;
+    }
+
+    async function print(){
+        let value = await getValue();
+        value = await getNewValue(value);
+        value = setValue(value);
+        return value;
+    }
+
+
+    print().then((function (value){ //resolve();
+        console.log(value);
+    })); //then is because internally promises work with async
+
+</script>
+
+</body>
+</html>

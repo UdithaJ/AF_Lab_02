@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    {% comment %} let myPromise = new Promise(function(resolve,error){
+        resolve();
+        error();
+
+    }); {% endcomment %}
+
+    function getValue(){
+        let Value = 0;
+        return new Promise(function (resolve,error) {
+            setTimeout(function () {
+                value = 10;
+                    resolve(value);
+            }, 2000);
+        });
+    }
+
+    getValue().then(function (value){
+        printmypromise(value);
+    });
+
+    function printmypromise(value){
+        console.log(value);
+    }
+
+</script>
+
+</body>
+</html>

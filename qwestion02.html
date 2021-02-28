@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function Person(name){
+        this.name = name;
+    }
+
+    function  Employee(name,position){
+        Person.call(this,name);
+        this.position = position;
+    }
+
+    Person.prototype.getName = function (){
+        console.log(this.name);
+    } 
+
+    Employee.prototype = Object.create(Person.prototype);
+    Employee.prototype.constructor = Employee;
+
+    Employee.prototype.getPosition = function (){
+        console.log(this.position);
+    }
+
+    var john = new Person("John");
+    john.getName();
+    console.log(john);
+    console.log(Person.prototype === john.__proto__);
+
+    var jane = new Employee("jane","Doctor");
+    jane.getName();
+    jane.getPosition();
+    console.log(jane.__proto__=== john.__proto__);//false
+    console.log(Person.prototype === Employee.prototype);//false
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function getValue(){
+        let Value = 0;
+        return new Promise(function (resolve,error) {
+            setTimeout(function () {
+                value = 10;
+                resolve(value);
+            }, 2000);
+        });
+    }
+
+    function  setValue(value){
+        return value + 50;
+    }
+
+    function getNewValue(value){
+
+        return value *100;
+    }
+
+    async function print(){
+        let value = await getValue();
+        value = await getNewValue(value);
+        value = setValue(value);
+        return value;
+    }
+
+
+    print().then(value =>
+        console.log(value)); // if single line execution no need brackets and function keyword
+
+
+    //another example
+    print().then(value => setValue(value)).then(value => console.log(value));
+
+
+    const persons = {
+
+        organization: "science",
+        people: ["john,Jane"],
+        display: function (){
+
+            this.people.forEach((value) => {
+                console.log(value, this.organization);
+            });
+        }
+    };
+
+    persons.display();
+
+
+     hello = function myfunction(){
+
+        return "hello";
+
+    }
+
+     hello = name => "Hi " + name;
+     welcome = (name,module) => "Hi " + name +" welcome to " + module;
+
+     console.log(hello("uditha"))
+     console.log(welcome("uditha","JavaScript"));
+
+
+
+
+
+</script>
+</body>
+</html>
