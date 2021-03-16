@@ -68,22 +68,34 @@ const http = require('http');
 //5.b ====================================
 http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html');
-   switch (req.method) {
-       case 'Get':
-       res.write('<h1>Hello World</h1>');
-           res.end();
-           break;
-       case 'Post':
-           req.on('data',data =>{
-               res.write('<h1>Hello '+data+'</h1>')
-               res.end();
-           });
-           break;
+    switch (req.method) {
+        case 'GET':
+            res.write('<h1>Hello World</h1>');
+            res.end(`
+        <!doctype html>
+        <html>
+        <body>
+            <form action="/" method="post">
+                <input type="text" name="name" /><br />
+                <button>Submit</button>
+            </form>
+        </body>
+        </html>
+      `);
+            break;
 
-   }
-}).listen(3000,(err) =>{
-    if (err){
+        case 'POST':
+            req.on('data', data => {
+                res.write('<h1>Hello ' + data + '</h1>');
+                res.end();
+            });
+            break;
+    }
+}).listen(3000, (err) => {
+
+    if(err){
+
         console.log(err);
     }
-    console.log('Server is Running..')
+    console.log('Server is listening to port 3000')
 });
