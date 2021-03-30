@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        url = "https://jsonplaceholder.typicode.com/posts";
+        fetch(url)
+        .then(Response => Response.json())
+        .then(data =>{
+            document.write(JSON.stringify(data)) // JSON.stringify is use to convert to String
+        })
+        .catch(Error => console.log(Error));
+
+
+        console.log("I print first"); //asyncronus behavior of JS(It does not wait..)
+
+    </script>
+</body>
+</html>

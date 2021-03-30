@@ -7,7 +7,18 @@ db.student.insertOne({
 
 })
 
+
+
 db.student.find({"name":"John"})
+
+Cursor = db.student.find({"isActive":"true"})
+
+while (Cursor.hasNext()) {
+    print(tojson(Cursor.next()));
+}
+
+
+
 db.student.find({"_id":ObjectId("6044c512ead58d7d8c2d09e5")})
 db.student.update({"name":"John"},{$addToSet:{"subjects":["Distributed Computing"]}})
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+  //taxRate = 0.1;
+
+   function calacAmount(taxRate){
+
+    return function(amount){
+        amount = amount + (amount*taxRate); //this.taxRate refer the global variable?
+        return amount;
+    }
+
+  };
+
+var getAmount = calacAmount(0.5); //return the inner function?
+console.log(getAmount(1000)); //assign amount value to returned inner function?
+    
+</script>
+
+</body>
+</html>
