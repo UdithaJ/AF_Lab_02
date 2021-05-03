@@ -41,5 +41,6 @@ db.student.insertMany([{
 db.student.findOneAndUpdate({$and:[{"name":"Smith"},{"isActive":true}]},{$addToSet:{"subjects":["Distributed Computing"]}},{ returnNewDocument: true })
 
 db.student.findOneAndUpdate({"name":"John"},{$set:{"isActive":false}},{ returnNewDocument: true })
+
 db.student.findOneAndDelete({"name":"John"},{ returnNewDocument: true })
 
